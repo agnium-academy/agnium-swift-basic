@@ -107,6 +107,30 @@ s.adjust()
 //command to print, like console in Obj-C
 println(f.color)
 
-let combinedStr = "first" + "last"
+//function with external params and default value, which will be used when the param is not set from the caller
+func createContact(#name: String, gender:String = "Female") ->String{
+    return name + " is a " + gender
+}
+
+//call the function which is NOT passing the 2nd param
+createContact(name: "Lynda")
+
+//call the function which is passing the 2nd para
+createContact(name: "John", gender: "Male")
+
+//Function with in-out params, will affect the variable outside the function body
+func swapNames(inout firstName: String, inout lastName: String){
+    let temp = firstName
+    firstName = lastName
+    lastName = temp
+}
+
+var first = "Edward"
+var last = "Snowden"
+swapNames(&first, &last)
+print("The first name would be: \(first) and last name would be: \(last)")
+
+
+
 
 
